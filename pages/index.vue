@@ -1,5 +1,5 @@
 <script>
-import NavBar from '~/components/NavBar.vue'
+import NavBar from '~/components/navbar.vue'  // Changed to lowercase
 export default {
   components: { NavBar }
 }
