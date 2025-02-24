@@ -4,15 +4,14 @@ export default {
   components: { NavBar }
 }
 </script>
-
 <template>
     <div>
       <!-- Navigation Bar -->
       <NavBar />
 
       <!-- Hero Section -->
-      <div class="min-h-screen bg-gradient-to-b from-saffron-100 to-white flex flex-col items-center justify-center text-center p-6 pt-20">
-        <img src="https://via.placeholder.com/600x400" alt="Ramakrishna Centre" class="w-full max-w-3xl rounded-lg shadow-lg mb-6">
+<div class="min-h-screen bg-gradient-to-b from-saffron-100 to-white flex flex-col items-center justify-center text-center p-6 pt-20">
+<img src="/Ramakrishna.jpg" alt="Ramakrishna Centre" class="max-w-[24rem] rounded-lg shadow-lg mb-6">
         <h1 class="text-5xl font-bold text-saffron-800 mb-4">
           Ramakrishna Centre of South Africa
         </h1>
