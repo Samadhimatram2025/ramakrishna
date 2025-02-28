@@ -334,32 +334,43 @@ export default {
 
       const touch = e.changedTouches[0];
       
-      // Temporarily hide the dragged element to detect the drop target underneath
-      this.touchData.element.style.visibility = 'hidden';
+      // Temporarily remove the dragged element from the layout
+      this.touchData.element.style.display = 'none';
       const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-      this.touchData.element.style.visibility = ''; // Restore visibility
+      this.touchData.element.style.display = ''; // Restore display
 
       // Reset visual movement
       this.touchData.element.style.transform = '';
 
-      // Use refs to directly reference drop zones
+      // Use refs to reference drop zones
       const arrangedArea = this.$refs.arrangedArea;
       const jumbledArea = this.$refs.jumbledArea;
 
       const isArrangedArea = arrangedArea && arrangedArea.contains(dropTarget);
       const isJumbledArea = jumbledArea && jumbledArea.contains(dropTarget);
 
-      // Debug logs (optional, remove in production)
+      // Fallback: Check if coordinates are within the arranged area bounds
+      const arrangedBounds = arrangedArea ? arrangedArea.getBoundingClientRect() : null;
+      const isWithinArrangedBounds = arrangedBounds && (
+        touch.clientX >= arrangedBounds.left &&
+        touch.clientX <= arrangedBounds.right &&
+        touch.clientY >= arrangedBounds.top &&
+        touch.clientY <= arrangedBounds.bottom
+      );
+
+      // Debug logs
       console.log('Touch end coordinates:', touch.clientX, touch.clientY);
       console.log('dropTarget:', dropTarget);
-      console.log('isArrangedArea:', isArrangedArea);
-      console.log('isJumbledArea:', isJumbledArea);
+      console.log('isArrangedArea (contains):', isArrangedArea);
+      console.log('isJumbledArea (contains):', isJumbledArea);
+      console.log('arrangedBounds:', arrangedBounds);
+      console.log('isWithinArrangedBounds:', isWithinArrangedBounds);
 
-      if (isArrangedArea && this.touchData.source === 'jumbled') {
-        this.moveWord(this.touchData.index, this.touchData.source, arrangedWords.length, 'arranged');
+      if ((isArrangedArea || isWithinArrangedBounds) && this.touchData.source === 'jumbled') {
+        this.moveWord(this.touchData.index, this.touchData.source, this.arrangedWords.length, 'arranged');
       } else if (isJumbledArea && this.touchData.source === 'arranged') {
-        this.moveWord(this.touchData.index, this.touchData.source, jumbledWords.length, 'jumbled');
-      } else if (isArrangedArea && this.touchData.source === 'arranged') {
+        this.moveWord(this.touchData.index, this.touchData.source, this.jumbledWords.length, 'jumbled');
+      } else if ((isArrangedArea || isWithinArrangedBounds) && this.touchData.source === 'arranged') {
         this.moveWord(this.touchData.index, this.touchData.source, targetIndex, 'arranged');
       }
 
