@@ -77,11 +77,14 @@
             <div 
               v-for="(word, index) in arrangedWords" 
               :key="`arranged-${index}`"
-              class="p-2 bg-amber-100 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-amber-200 text-amber-900"
+              class="p-2 bg-amber-100 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-amber-200 text-amber-900 touchable"
               draggable="true"
               @dragstart="(e) => handleDragStart(e, index, 'arranged')"
               @dragover.prevent
               @drop="(e) => handleDrop(e, index, 'arranged')"
+              @touchstart="(e) => handleTouchStart(e, index, 'arranged')"
+              @touchmove.prevent="(e) => handleTouchMove(e)"
+              @touchend="(e) => handleTouchEnd(e, index, 'arranged')"
             >
               {{ word }}
             </div>
@@ -99,9 +102,12 @@
             <div 
               v-for="(word, index) in jumbledWords" 
               :key="`jumbled-${index}`"
-              class="p-2 bg-amber-50 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-amber-100 text-amber-800"
+              class="p-2 bg-amber-50 rounded cursor-move shadow-sm hover:shadow-md transition-shadow border border-amber-100 text-amber-800 touchable"
               draggable="true"
               @dragstart="(e) => handleDragStart(e, index, 'jumbled')"
+              @touchstart="(e) => handleTouchStart(e, index, 'jumbled')"
+              @touchmove.prevent="(e) => handleTouchMove(e)"
+              @touchend="(e) => handleTouchEnd(e, index, 'jumbled')"
             >
               {{ word }}
             </div>
@@ -196,7 +202,8 @@
         timerInterval: null,
         bestTimes: {},
         showIncorrectFeedback: false, // New property for feedback on incorrect arrangement
-        feedbackTimeout: null // Timeout reference for clearing feedback
+        feedbackTimeout: null, // Timeout reference for clearing feedback
+        touchData: null // Store touch data
       };
     },
     
@@ -373,6 +380,57 @@
           clearTimeout(this.feedbackTimeout);
           this.feedbackTimeout = null;
         }
+      },
+      handleTouchStart(e, index, source) {
+        // Store the index and source of the touched word
+        this.touchData = { index, source };
+      },
+      handleTouchMove(e) {
+        // Prevent default touch behavior to allow the drop event
+      },
+      handleTouchEnd(e, targetIndex, target) {
+        // Get touch position
+        const touch = e.changedTouches[0];
+        
+        // Call handleDrop with the touch position
+        if (this.touchData) {
+          this.handleDropWithTouch(touch, targetIndex, target);
+          this.touchData = null;
+        }
+      },
+      handleDropWithTouch(touch, targetIndex, target) {
+        const { index: sourceIndex, source } = this.touchData;
+        
+        let updatedJumbled = [...this.jumbledWords];
+        let updatedArranged = [...this.arrangedWords];
+        
+        // Hide any previous incorrect feedback
+        this.showIncorrectFeedback = false;
+        this.clearFeedbackTimeout();
+        
+        // Handle different drag sources and targets
+        if (source === 'jumbled' && target === 'arranged') {
+          // Move from jumbled to arranged
+          const [movedItem] = updatedJumbled.splice(sourceIndex, 1);
+          
+          // Insert at the correct position in arranged
+          if (targetIndex === -1 || targetIndex >= updatedArranged.length) {
+            updatedArranged.push(movedItem);
+          } else {
+            updatedArranged.splice(targetIndex, 0, movedItem);
+          }
+        } else if (source === 'arranged' && target === 'jumbled') {
+          // Move from arranged back to jumbled
+          const [movedItem] = updatedArranged.splice(sourceIndex, 1);
+          updatedJumbled.push(movedItem);
+        } else if (source === 'arranged' && target === 'arranged') {
+          // Reordering within arranged
+          const [movedItem] = updatedArranged.splice(sourceIndex, 1);
+          updatedArranged.splice(targetIndex, 0, movedItem);
+        }
+        
+        this.jumbledWords = updatedJumbled;
+        this.arrangedWords = updatedArranged;
       }
     }
   };
@@ -386,5 +444,10 @@
   /* Add a subtle Om symbol pattern to the component background */
   .game-container {
     position: relative;
+  }
+  
+  /* Style for touchable elements */
+  .touchable {
+    touch-action: none; /* Disable default touch actions */
   }
   </style>
