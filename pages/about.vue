@@ -31,14 +31,14 @@ export default {
         it will prove more beneficial work for India than any yet attempted.”</p>
 
       <div class="tab-container rounded-lg">
-        <div class="tab-buttons flex justify-around mb-4">
-          <button @click="setTab('johannesburg')" :class="{'active-tab': activeTab === 'johannesburg'}" class="tab-button rounded-lg">Johannesburg Sub-Centre</button>
-          <button @click="setTab('outreach')" :class="{'active-tab': activeTab === 'outreach'}" class="tab-button rounded-lg">Outreach</button>
-          <button @click="setTab('activities')" :class="{'active-tab': activeTab === 'activities'}" class="tab-button rounded-lg">Primary Activities</button>
-          <button @click="setTab('motto')" :class="{'active-tab': activeTab === 'motto'}" class="tab-button rounded-lg">Motto</button>
-          <button @click="setTab('logo')" :class="{'active-tab': activeTab === 'logo'}" class="tab-button rounded-lg">Logo</button>
-          <button @click="setTab('vedanta')" :class="{'active-tab': activeTab === 'vedanta'}" class="tab-button rounded-lg">Vedanta</button>
-          <button @click="setTab('monks')" :class="{'active-tab': activeTab === 'monks'}" class="tab-button rounded-lg">Monks</button>
+        <div class="tab-buttons flex flex-wrap sm:justify-around justify-start mb-4">
+          <button @click="setTab('johannesburg')" :class="{'active-tab': activeTab === 'johannesburg'}" class="tab-button rounded-lg sm:w-auto w-1/2">Johannesburg Sub-Centre</button>
+          <button @click="setTab('outreach')" :class="{'active-tab': activeTab === 'outreach'}" class="tab-button rounded-lg sm:w-auto w-1/2">Outreach</button>
+          <button @click="setTab('activities')" :class="{'active-tab': activeTab === 'activities'}" class="tab-button rounded-lg sm:w-auto w-1/2">Primary Activities</button>
+          <button @click="setTab('motto')" :class="{'active-tab': activeTab === 'motto'}" class="tab-button rounded-lg sm:w-auto w-1/2">Motto</button>
+          <button @click="setTab('logo')" :class="{'active-tab': activeTab === 'logo'}" class="tab-button rounded-lg sm:w-auto w-1/2">Logo</button>
+          <button @click="setTab('vedanta')" :class="{'active-tab': activeTab === 'vedanta'}" class="tab-button rounded-lg sm:w-auto w-1/2">Vedanta</button>
+          <button @click="setTab('monks')" :class="{'active-tab': activeTab === 'monks'}" class="tab-button rounded-lg sm:w-auto w-1/2">Monks</button>
         </div>
 
         <div v-if="activeTab === 'johannesburg'" class="tab-content">
@@ -100,7 +100,6 @@ export default {
     </div>
   </div>
 </template>
-
 <style scoped>
 .tab-container {
   width: 100%;
