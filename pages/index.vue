@@ -197,8 +197,8 @@ export default {
     <section class="py-16 bg-gradient-to-b from-saffron-100/80 to-white/80 relative z-10">
       <h2 class="text-3xl font-bold text-saffron-900 text-center mb-8">Recent Activities</h2>
       <div class="activities-container overflow-x-hidden whitespace-nowrap relative">
-        <span class="scroll-left text-saffron-700 text-2xl font-semibold ml-4 opacity-75 absolute left-4 top-1/2 transform -translate-y-1/2 cursor-pointer" style="z-index: 10; border-radius: 50%; border: 2px solid;">←</span>
-        <span class="scroll-right text-saffron-700 text-2xl font-semibold mr-4 opacity-75 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" style="z-index: 10; border-radius: 50%; border: 2px solid;">→</span>
+        <span class="scroll-left text-saffron-700 text-2xl font-semibold ml-4 opacity-75 absolute left-4 top-1/2 transform -translate-y-1/2 cursor-pointer" style="z-index: 10; border-radius: 50%; border: 2px solid; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">←</span>
+        <span class="scroll-right text-saffron-700 text-2xl font-semibold mr-4 opacity-75 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" style="z-index: 10; border-radius: 50%; border: 2px solid; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">→</span>
         <div class="parallax-inner inline-flex gap-6">
           <NuxtLink to="/activity1" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 parallax-item w-64">
             <img src="/january_2025.jpg" alt="January 2025 Welfare Distribution" class="w-full h-48 object-contain rounded-lg mb-4" />
@@ -316,6 +316,11 @@ export default {
   z-index: 10;
   border-radius: 50%;
   border: 2px solid;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scroll-right {
@@ -325,6 +330,11 @@ export default {
   z-index: 10;
   border-radius: 50%;
   border: 2px solid;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scroll-sign {
