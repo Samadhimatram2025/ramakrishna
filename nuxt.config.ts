@@ -33,6 +33,9 @@ export default defineNuxtConfig({
   },
   compatibilityDate: '2025-02-24',
   nitro: {
-    preset: 'cloudflare-pages-static'
+    preset: 'cloudflare-pages-static',
+    prerender: {
+      failOnError: false
+    }
   }
 })
