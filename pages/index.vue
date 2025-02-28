@@ -351,11 +351,12 @@ export default {
 
 @media (max-width: 768px) {
   .quote {
-    top: 15%; /* Adjust the top position for smaller screens */
+    top: 10%; /* Adjust the top position for smaller screens */
     font-size: 0.8rem; /* Reduce font size for smaller screens */
   }
 
   .sun {
+    bottom: 10%; /* Raise the sun on smaller screens */
     transform: translateX(-50%) scale(0.7); /* Reduce the scale for smaller screens */
   }
 }
