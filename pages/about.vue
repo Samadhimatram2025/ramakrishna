@@ -23,7 +23,7 @@ export default {
 
 <template>
   <div class="min-h-screen bg-gradient-to-b from-saffron-100/80 to-white/80 flex flex-col items-center p-8 pt-48 text-center relative z-10">
-    <div class="content max-w-4xl">
+    <div class="content max-w-full px-4">
       <h1 class="text-4xl font-bold text-saffron-900 mb-6">About Us</h1>
       <p class="text-lg text-gray-600 mb-4 text-center">The idea of starting a Ramakrishna Movement in Africa had germinated in the mind of Swami Vivekananda,
         the principal architect of the organisation, for in 1897 he wrote to his brother monk, Swami Shivananda Mahapurush:
