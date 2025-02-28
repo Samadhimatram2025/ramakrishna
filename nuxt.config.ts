@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/main.css'],
-  ssr: true,
+  ssr: false, // Changed from true to false for static site generation
   app: {
     head: {
       link: [
