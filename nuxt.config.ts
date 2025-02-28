@@ -15,7 +15,6 @@ export default defineNuxtConfig({
             background-repeat: repeat;
             background-size: cover;
             background-attachment: fixed;
-            min-height: 100vh !important;
             height: 100%;
             width: 100%;
             background-position: center;

@@ -132,12 +132,12 @@ export default {
 </script>
 
 <template>
-  <div class="pt-12">
+  <div>
     <!-- Hero Section -->
     <section
-      class="hero-section min-h-screen flex flex-col items-center justify-center text-center p-8 pt-20 duration-500 relative z-10 bg-gradient-to-r from-saffron-100 to-saffron-50"
-    >
-      <h1
+  class="hero-section min-h-screen flex flex-col items-center justify-center text-center p-4 md:p-8 pt-16 md:pt-20 duration-500 relative z-10 bg-gradient-to-r from-saffron-100 to-saffron-50"
+>
+<h1
         class="hero-text text-5xl md:text-6xl font-extrabold text-saffron-900 mb-6 tracking-tight"
       >
         The Ramakrishna Centre of South Africa, Johannesburg
@@ -169,7 +169,9 @@ export default {
       <div class="sun absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 opacity-50 z-0">
         <div class="rays"></div>
       </div>
-    </section>
+  </section>
+    
+      
 
     <!-- Holy Trinity Static Cards -->
     <section class="py-16 bg-gradient-to-b from-saffron-100/80 to-white/80 relative z-10">

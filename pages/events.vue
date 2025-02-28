@@ -41,9 +41,6 @@ export default {
 
 <template>
   <div class="min-h-screen bg-gradient-to-b from-saffron-100/80 to-white/80 flex flex-col items-center p-8 pt-36 text-center relative z-10">
-    <NuxtLink to="/" class="absolute top-4 left-4 bg-saffron-800 text-white px-4 py-2 rounded-md hover:bg-saffron-700 transition-colors duration-300 z-20">
-      Back to Home
-    </NuxtLink>
     <div class="events-container content max-w-4xl w-full space-y-6">
       <h1 class="text-5xl font-bold text-black mb-8">Recent/Upcoming Events</h1>
       <NuxtLink
