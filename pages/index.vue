@@ -356,7 +356,7 @@ export default {
   }
 
   .sun {
-    bottom: 10%; /* Raise the sun on smaller screens */
+    bottom: 10% !important; /* Raise the sun on smaller screens */
     transform: translateX(-50%) scale(0.7); /* Reduce the scale for smaller screens */
   }
 }
