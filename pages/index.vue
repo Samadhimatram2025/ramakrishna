@@ -348,4 +348,15 @@ export default {
   background-position: center;
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .quote {
+    top: 15%; /* Adjust the top position for smaller screens */
+    font-size: 0.8rem; /* Reduce font size for smaller screens */
+  }
+
+  .sun {
+    transform: translateX(-50%) scale(0.7); /* Reduce the scale for smaller screens */
+  }
+}
 </style>
