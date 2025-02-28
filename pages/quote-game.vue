@@ -49,7 +49,7 @@
           </div>
           
           <div v-if="gameComplete" class="mt-2 text-green-700 font-bold text-xl">
-            Well done! You've arranged the quote correctly!
+            Great! You've arranged the quote correctly!
           </div>
           
           <!-- Incorrect arrangement feedback -->
