@@ -68,6 +68,7 @@
         <div v-if="gameActive || gameComplete">
           <!-- Arranged words area -->
           <div 
+            ref="arrangedArea"
             class="min-h-24 p-4 mb-4 border-2 border-dashed border-amber-300 rounded-lg flex flex-wrap gap-2 bg-white bg-opacity-70"
             :class="{ 'border-red-300 bg-red-50 bg-opacity-30': showIncorrectFeedback }"
             @dragover.prevent
@@ -94,6 +95,7 @@
           
           <!-- Jumbled words -->
           <div 
+            ref="jumbledArea"
             class="p-4 border border-amber-200 rounded-lg flex flex-wrap gap-2 bg-white bg-opacity-70"
             @dragover.prevent
             @drop="(e) => handleDrop(e, jumbledWords.length, 'jumbled')"
@@ -290,7 +292,6 @@ export default {
     
     // Handle drag start for desktop
     handleDragStart(e, index, source) {
-      // Do NOT call e.preventDefault() here; it’s needed for drag to work
       e.dataTransfer.setData('text/plain', JSON.stringify({ index, source }));
     },
     
@@ -322,7 +323,7 @@ export default {
       const deltaX = touch.clientX - this.touchData.startX;
       const deltaY = touch.clientY - this.touchData.startY;
 
-      // Move the element visually (optional feedback)
+      // Move the element visually
       this.touchData.element.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
     },
     
@@ -332,22 +333,32 @@ export default {
       if (!this.touchData) return;
 
       const touch = e.changedTouches[0];
+      
+      // Temporarily hide the dragged element to detect the drop target underneath
+      this.touchData.element.style.visibility = 'hidden';
       const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
+      this.touchData.element.style.visibility = ''; // Restore visibility
 
       // Reset visual movement
       this.touchData.element.style.transform = '';
 
-      // Determine the drop target based on the DOM element
-      const arrangedArea = document.querySelector('.min-h-24'); // Arranged words area
-      const jumbledArea = document.querySelector('.p-4.border.border-amber-200'); // Jumbled words area
+      // Use refs to directly reference drop zones
+      const arrangedArea = this.$refs.arrangedArea;
+      const jumbledArea = this.$refs.jumbledArea;
 
       const isArrangedArea = arrangedArea && arrangedArea.contains(dropTarget);
       const isJumbledArea = jumbledArea && jumbledArea.contains(dropTarget);
 
+      // Debug logs (optional, remove in production)
+      console.log('Touch end coordinates:', touch.clientX, touch.clientY);
+      console.log('dropTarget:', dropTarget);
+      console.log('isArrangedArea:', isArrangedArea);
+      console.log('isJumbledArea:', isJumbledArea);
+
       if (isArrangedArea && this.touchData.source === 'jumbled') {
-        this.moveWord(this.touchData.index, this.touchData.source, targetIndex, 'arranged');
+        this.moveWord(this.touchData.index, this.touchData.source, arrangedWords.length, 'arranged');
       } else if (isJumbledArea && this.touchData.source === 'arranged') {
-        this.moveWord(this.touchData.index, this.touchData.source, this.jumbledWords.length, 'jumbled');
+        this.moveWord(this.touchData.index, this.touchData.source, jumbledWords.length, 'jumbled');
       } else if (isArrangedArea && this.touchData.source === 'arranged') {
         this.moveWord(this.touchData.index, this.touchData.source, targetIndex, 'arranged');
       }
