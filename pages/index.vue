@@ -20,7 +20,7 @@ export default {
         opacity: 0.2,
       },
       {
-        top: isMobile ? '30%' : '20%', // Adjust top position for mobile
+        top: isMobile ? '10%' : '20%', // Adjust top position for mobile
         scale: isMobile ? 1.0 : 1.5, // Adjust scale for mobile
         opacity: 0.8,
         duration: 5,
