@@ -10,6 +10,8 @@ export default {
     gsap.from('.hero-text', { y: 50, opacity: 0, duration: 1.2, ease: 'power2.out', delay: 0.6, stagger: 0.2 })
     gsap.to('.hero-button', { scale: 1.05, duration: 1, ease: 'elastic.out(1, 0.8)', repeat: -1, yoyo: true, delay: 1.5 })
 
+    const isMobile = window.innerWidth <= 768;
+
     gsap.fromTo(
       '.sun',
       {
@@ -18,8 +20,8 @@ export default {
         opacity: 0.2,
       },
       {
-        top: '20%',
-        scale: 1.5,
+        top: isMobile ? '30%' : '20%', // Adjust top position for mobile
+        scale: isMobile ? 1.0 : 1.5, // Adjust scale for mobile
         opacity: 0.8,
         duration: 5,
         ease: 'power2.inOut',
