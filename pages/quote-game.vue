@@ -338,8 +338,11 @@ export default {
       this.touchData.element.style.transform = '';
 
       // Determine the drop target based on the DOM element
-      const isArrangedArea = dropTarget?.closest('.min-h-24'); // Arranged words area
-      const isJumbledArea = dropTarget?.closest('.p-4.border.border-amber-200'); // Jumbled words area
+      const arrangedArea = document.querySelector('.min-h-24'); // Arranged words area
+      const jumbledArea = document.querySelector('.p-4.border.border-amber-200'); // Jumbled words area
+
+      const isArrangedArea = arrangedArea && arrangedArea.contains(dropTarget);
+      const isJumbledArea = jumbledArea && jumbledArea.contains(dropTarget);
 
       if (isArrangedArea && this.touchData.source === 'jumbled') {
         this.moveWord(this.touchData.index, this.touchData.source, targetIndex, 'arranged');
