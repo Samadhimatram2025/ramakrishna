@@ -353,6 +353,7 @@ export default {
 
 @media (max-width: 768px) {
   .quote {
+    opacity: 0; /* Hide the quote on smaller screens */
     top: 10%; /* Adjust the top position for smaller screens */
     font-size: 0.8rem; /* Reduce font size for smaller screens */
   }

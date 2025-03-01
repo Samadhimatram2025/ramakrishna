@@ -26,7 +26,7 @@
       </svg>
       
       <!-- Sun - will fully encircle the lotus -->
-      <circle ref="sun" class="sun absolute left-1/2 top-full transform -translate-x-1/2 w-32 h-32" fill="#FFC107" />
+      <circle ref="sun" class="sun absolute left-1/2 top-full transform -translate-x-1/2 w-32 h-32 sun-animation" fill="#FFC107" />
       
       <!-- Snake encircling the sun -->
       <svg ref="snake" class="snake absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-0" viewBox="0 0 200 200">
@@ -150,7 +150,7 @@ export default {
       // Step 2: Sun rising to encircle the lotus
       // First position the sun behind the lotus
       timeline.to(sun.value, {
-        y: -95, 
+        yPercent: -95,
         duration: 4,
         ease: 'power2.out'
       }, '-=1')
@@ -261,5 +261,11 @@ export default {
 
 .central-area {
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .sun-animation {
+    transform: translateY(40px); /* Adjust this value as needed */
+  }
 }
 </style>
