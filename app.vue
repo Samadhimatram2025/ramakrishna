@@ -1,8 +1,9 @@
 <template>
   <Navbar />
-  <NuxtLayout>
+  <NuxtLayout class="page-container">
     <NuxtPage />
   </NuxtLayout>
+  <Footer />
 </template>
 
 <script setup>

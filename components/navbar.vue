@@ -1,6 +1,6 @@
 <template>
   <div class="bg-saffron-900/20">
-    <nav class="bg-saffron-800 text-white p-2 shadow-xl about-navbar fixed top-0 left-0 w-full z-20">
+    <nav class="bg-saffron-800 text-white p-2 shadow-xl about-navbar fixed top-0 left-0 w-full z-50">
       <div class="container mx-auto flex items-center justify-between">
         <NuxtLink to="/" class="flex items-center text-lg font-semibold" style="font-size: 1.2rem;">
           <img src="/rkc2.png" alt="Logo" class="h-16 md:h-24 w-auto mr-4" />
