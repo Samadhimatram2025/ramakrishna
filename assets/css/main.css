@@ -10,6 +10,7 @@
 nav {
   font-family: 'Playfair Display', serif;
   font-size: 1.2rem;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.16);
 }
 
 .ripple {
@@ -67,5 +68,12 @@ body {
 }
 
 .page-container {
-  padding-top: 6rem;
+  padding-top: 6rem; /* Default padding for larger screens */
+}
+
+/* Adjust padding for smaller screens */
+@media (max-width: 768px) {
+  .page-container {
+    padding-top: 4rem; /* Reduce padding for smaller screens */
+  }
 }
