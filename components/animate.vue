@@ -265,7 +265,7 @@ export default {
 
 @media (max-width: 768px) {
   .sun-animation {
-    transform: translateY(40px); /* Adjust this value as needed */
+    transform: translateY(20px); /* Adjust this value as needed */
   }
 }
 </style>
