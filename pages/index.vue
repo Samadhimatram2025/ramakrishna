@@ -165,7 +165,7 @@ export default {
       </div>
 
       <!-- Sun Animation -->
-      <p class="quote text-xs text-gray-700 max-w-3xl mt-8 text-center opacity-0 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="font-weight: normal;">
+<p class="quote text-xs text-gray-700 max-w-3xl mt-8 text-center opacity-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="font-weight: normal;">
         The sun can give heat and light to the whole world, but he cannot do so when the clouds shut out his rays. Similarly as long as egotism veils the heart, God cannot shine upon it.
       </p>
       <div class="sun absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 opacity-50 z-0">
