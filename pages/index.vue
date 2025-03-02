@@ -350,7 +350,7 @@ export default {
 @media (max-width: 768px) {
   .quote {
     opacity: 0;
-    top: 50%;
+    top: 25%;
     font-size: 0.8rem;
   }
 
