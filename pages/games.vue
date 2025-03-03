@@ -29,6 +29,10 @@ export default {
           <h3 class="text-xl font-semibold text-saffron-800 mb-2">Arrange the Words</h3>
           <p class="text-gray-600">Identify a spiritual image as it reveals itself—test your intuition!</p>
         </NuxtLink>
+        <NuxtLink to="/omtetris" class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+          <h3 class="text-xl font-semibold text-saffron-800 mb-2">OM Tetris</h3>
+          <p class="text-gray-600">Play OM Tetris.</p>
+        </NuxtLink>
       </div>
     </section>
     <NuxtLink to="/" class="mt-8 bg-saffron-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-saffron-700 transition-all duration-300">Back to Home</NuxtLink>
