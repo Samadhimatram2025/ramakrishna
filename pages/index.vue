@@ -140,7 +140,7 @@ export default {
   class="hero-section min-h-screen flex flex-col items-center justify-center text-center p-4 md:p-8 pt-16 md:pt-20 duration-500 relative z-10 bg-gradient-to-r from-saffron-100 to-saffron-50"
 >
 <h1
-        class="hero-text text-5xl md:text-6xl font-extrabold text-saffron-900 mb-6 tracking-tight"
+        class="hero-text text-4xl md:text-6xl font-extrabold text-saffron-900 mb-6 tracking-tight"
       >
         The Ramakrishna Centre of South Africa, Johannesburg
       </h1>
@@ -165,10 +165,10 @@ export default {
       </div>
 
       <!-- Sun Animation -->
-<p class="quote text-xs text-gray-700 max-w-3xl mt-8 text-center opacity-0 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style="font-weight: normal;">
+<p class="quote text-xs text-gray-700 max-w-3xl mt-8 text-center opacity-0 absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-4" style="font-weight: normal;">
         The sun can give heat and light to the whole world, but he cannot do so when the clouds shut out his rays. Similarly as long as egotism veils the heart, God cannot shine upon it.
       </p>
-      <div class="sun absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 opacity-50 z-0">
+      <div class="sun absolute bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-24 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 opacity-50 z-0">
         <div class="rays"></div>
       </div>
   </section>
