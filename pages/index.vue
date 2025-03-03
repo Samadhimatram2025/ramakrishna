@@ -20,7 +20,7 @@ export default {
         opacity: 0.2,
       },
       {
-        top: isMobile ? '10%' : '20%', // Adjust top position for mobile
+        top: isMobile ? '15%' : '20%', // Adjust top position for mobile
         scale: isMobile ? 1.0 : 1.5, // Adjust scale for mobile
         opacity: 0.8,
         duration: 5,
@@ -355,7 +355,7 @@ export default {
   }
 
   .sun {
-    bottom: 10% !important;
+    bottom: 15% !important;
     transform: translateX(-50%) scale(0.7);
   }
 }
