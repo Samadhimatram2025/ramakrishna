@@ -37,7 +37,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue';
 
 // Board dimensions
-const ROWS = 20;
+const ROWS = 15;
 const COLS = 10;
 
 // Game state
@@ -406,7 +406,7 @@ const resetGame = () => {
   border: 2px solid #333;
   background-color: #f8f3e6;
   width: 300px;
-  height: 600px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   outline: none;
