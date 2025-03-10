@@ -21,7 +21,7 @@
                 <NuxtLink to="/holy-trinity" class="block whitespace-no-wrap px-4 py-2" style="font-size: 1.2rem;">Holy Trinity</NuxtLink>
               </li>
               <li class="bg-saffron-800 hover:bg-saffron-700">
-                <NuxtLink to="/about" class="block whitespace-no-wrap px-4 py-2" style="font-size: 1.2rem;">JHBBSub-Centre</NuxtLink>
+                <NuxtLink to="/about" class="block whitespace-no-wrap px-4 py-2" style="font-size: 1.2rem;">Sub-Centre</NuxtLink>
               </li>
             </ul>
           </li>
